@@ -10,3 +10,19 @@
           - SecurityUpdates
           - CriticalUpdates
           - UpdateRollups
+
+     - name: Install all security updates with automatic reboots
+      win_updates:
+        category_names:
+          - SecurityUpdates
+          reboot: yes     
+
+      - name: Ensure WinRM starts when the system has settled and is ready to work reliably
+        win_service:
+          name: WinRM
+          start_mode: delayed
+
+      - name: Ensure we wait long enough for the updates to be applied during reboot
+        win_updates:
+          reboot: yes
+          reboot_timeout: 3600
