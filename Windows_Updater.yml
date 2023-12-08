@@ -1,12 +1,10 @@
 ---
 hosts: all
-- name: windows rolling update
 tasks:
-  -name: Install all critical and security updates
-  ansible.windows.win_updates:
+  - name: Install all security, critical, and rollup updates without a scheduled task
+  win_updates:
     category_names:
-      - CriticalUpdates
       - SecurityUpdates
-    state: installed
-    reboot: true
+      - CriticalUpdates
+      - UpdateRollups
     log_path: C:\ansible.txt
