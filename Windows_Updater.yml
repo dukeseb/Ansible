@@ -1,18 +1,12 @@
 ---
-- hosts: all
-
-  become: true
-
-  tasks:
-    - name: Install all security, critical, and rollup updates without a scheduled task
-      win_updates:
-        category_names:
-          - SecurityUpdates
-          - CriticalUpdates
-          - UpdateRollups
-
-    - name: Ensure WinRM starts when the system has settled and is ready to work reliably
-      win_service:
-        name: WinRM
-        start_mode: delayed
-
+-name: WIndows Rolling Update
+hosts: all
+tasks:
+  -name: Install all critical and security updates
+  ansible.windows.win_updates:
+    category_names:
+      - CriticalUpdates
+      - SecurityUpdates
+    state: installed
+    reboot: true
+    log_path: C:\ansible.txt
