@@ -10,4 +10,5 @@
       - SecurityUpdates
       - CriticalUpdates
       - UpdateRollups
+      reboot: true
       log_path: C:\ansible.txt
