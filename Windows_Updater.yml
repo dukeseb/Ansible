@@ -9,5 +9,10 @@
         category_names:
           - SecurityUpdates
           - CriticalUpdates
-          - UpdateRollups  
+          - UpdateRollups
+
+    - name: Ensure WinRM starts when the system has settled and is ready to work reliably
+      win_service:
+        name: WinRM
+        start_mode: delayed
 
