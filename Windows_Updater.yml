@@ -11,4 +11,5 @@
       - CriticalUpdates
       - UpdateRollups
       reboot: true
+      reboot_timeout: 3600
       log_path: C:\ansible.txt
