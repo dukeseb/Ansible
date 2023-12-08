@@ -1,5 +1,5 @@
 ---
--name: WIndows Rolling Update
+- name: WIndows Rolling Update
 hosts: all
 tasks:
   -name: Install all critical and security updates
