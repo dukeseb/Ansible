@@ -10,6 +10,8 @@
           - SecurityUpdates
           - CriticalUpdates
           - UpdateRollups
+          reboot: yes
+          reboot_timeout: 3600
 
     - name: Ensure WinRM starts when the system has settled and is ready to work reliably
       win_service:
